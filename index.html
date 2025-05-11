@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+     <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     
+ <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+      <!-- JSX script -->
+    <script type="text/babel">
+        const app = document.getElementById('app');
+
+        // function createTittle(title){
+        //     if (title) {
+        //         return title;
+        //     } else {
+        //         return 'Defualt Tittle';
+        //     }
+        //     } 
+        
+        
+
+
+    //     function Header({title}) {
+    //         return <h1>{createTittle(title)}</h1>;
+
+
+
+    // }
+
+    //make use of props
+    function Header({ title }) {
+  return <h1>{title ? title : 'Default Title'}</h1>;
+  }
+
+
+    function HomePage() {
+        return (<div>
+            <Header/> 
+            <Header title="james"/> 
+                   
+
+
+            </div>);
+    }
+
+   
+        // telling REACT TO USE APP AS ROOT FILE 
+        const root = ReactDOM.createRoot(app);
+        // rendering to the root with a h1 content
+        root.render(<HomePage />);
+    </script>
+    
+</body>
+</html>
+
+
+<!-- // without using react -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const app = document.getElementById('app');
+        // create a new H1 element
+        const header = document.createElement('hi');
+        // create a new text node for the H1 element
+        const text = 'Develop Preview. Ship.';
+        const headerContent = document.createTextNode(text);
+        // Append the text to the H1 element
+        header.appendChild(headerContent);
+        //Place the H1 element inside the div
+        app.appendChild(header);
+    </script>
+    
+</body>
+</html> -->
+//

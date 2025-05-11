@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+     <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     
+ <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+      <!-- JSX script -->
+    <script type="text/babel">
+        const app = document.getElementById('app');
+
+
+    //make use of props
+    function Header({ title }) {
+  return <h1>{title ? title : 'Default Title'}</h1>;
+  }
+
+  function HomePage() {
+  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+    function handleClick() {
+      setlikes(likes + 1);
+      console.log("increment like count")
+    }
+    const [likes, setlikes ] = React.useState(0)
+  return (
+    <div>
+      <Header title="Develop. Preview. Ship." />      
+
+      <ul>
+        {names.map((name) => (
+        //   <li>{name}</li>
+        //this line bellow ensures that each name is unique
+          <li key={name}>{name}</li>
+        ))}
+      </ul>
+      <button onClick={handleClick}>Like({likes})</button>
+    </div>
+     );
+    }
+   
+        // telling REACT TO USE APP AS ROOT FILE 
+        const root = ReactDOM.createRoot(app);
+        // rendering to the root with a h1 content
+        root.render(<HomePage />);
+    </script>
+    
+</body>
+</html>
+
+
+<!-- Notes:
+ In React, event names are camelCased. 
+ The onClick event is one of many possible events 
+ you can use to respond to user interaction. 
+ For example, you can use onChange for input fields 
+ or onSubmit for forms. -->
+
+
+
+ <!-- The first item in the array is the state value, which you can name anything.
+   It's recommended to name it something descriptive:
+   
+   The second item in the array is a function to update the value. 
+   You can name the update function anything, but it's common to prefix it with set followed 
+   by the name of the state variable you're updating:
+
+   You can also take the opportunity to add the initial 
+   value of your likes state to 0:
+
+   Then, you can check the initial state is working by using 
+   the state variable inside your component.
+   
+
+   Finally, you can call your state updater function, 
+   setLikes in your HomePage component, let's add it inside the handleClick() function you previously defined:
+   
+   -->
